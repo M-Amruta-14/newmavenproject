@@ -1,21 +1,21 @@
-pipeline {
-  agent any
-  stages {
-    stage('scm checkout') {
-      steps {
-        git 'https://github.com/kumargaurav039/newmavenproject.git'
-      }
-    }
-
-    stage('package the code') {
-      steps {
-
-        withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
-        sh 'mvn clean package'
+pipeline{
+    agent any
+    stages{
+        stage("git scm checkout")
+        steps{
+            git 'https://github.com/M-Amruta-14/newmavenproject.git'
         }
-        
-      }
     }
-
-  }
+    stages{
+        stage("level-2")
+        steps{
+            sh 'echo level-2'
+        }
+    }
+    stages{
+        stage("level-3")
+        steps{
+            sh 'echo level-3'
+        }
+    }
 }
