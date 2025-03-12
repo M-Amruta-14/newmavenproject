@@ -6,10 +6,10 @@ pipeline{
             git 'https://github.com/M-Amruta-14/newmavenproject.git'
         }
         }
-        stage("compile the code"){
+        stage("test the code"){
         steps{
             withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) {
-                sh 'mvn compile'
+                sh 'mvn test'
             }
         }
         } 
