@@ -6,15 +6,12 @@ pipeline{
             git 'https://github.com/M-Amruta-14/newmavenproject.git'
         }
         }
-        stage("level-2"){
+        stage("validate the code"){
         steps{
-            sh 'echo level-2'
+            withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '', traceability: true) {
+                sh 'mvn validate'
+            }
         }
-        }
-        stage("level-3"){
-        steps{
-            sh 'echo level-3'
-        }
-        }
+        } 
     }
 }
